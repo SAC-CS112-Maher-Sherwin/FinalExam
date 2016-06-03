@@ -4,7 +4,7 @@ public class FlyingObject {
     private int airSpeedMPH;
     private int elevationPerMinute;
     private String name;
-    private int totalMilesTraveled;
+    private double totalMilesTraveled;
     private int totalElevation;
     
     public FlyingObject (int a, int e, String n) {
@@ -30,12 +30,12 @@ public class FlyingObject {
     }
     
     public void Fly(int i) {
-        totalMilesTraveled = totalMilesTraveled + ((airSpeedMPH/60)*i);
-        totalElevation = totalElevation + elevationPerMinute*i;
+        totalMilesTraveled = ((double)(airSpeedMPH*i)/60);
+        totalElevation = elevationPerMinute*i;
     }
     
     public void Location() {
-        System.out.printf("%s: Miles Traveled = %d, Elevation = %d feet\n", name, totalMilesTraveled, totalElevation);
+        System.out.printf("%s: Miles Traveled = %.2f, Elevation = %d feet\n", name, totalMilesTraveled, totalElevation);
     }
     
 }
